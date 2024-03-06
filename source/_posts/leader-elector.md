@@ -44,8 +44,17 @@ Defaulted container "leader-elector" out of: leader-elector, nginx-deploy
 F0303 14:30:00.130485       8 main.go:108] failed to create election: endpoints "elect-nginx-deploy" is forbidden: User "system:serviceaccount:test-leader-elector:default" cannot get resource "endpoints" in API group "" in the namespace "default"
 ```
 修复
-
-> 由于这里给了最高admin的权限，不建议在生产环境使用
+<p style="padding: 10px; border-left: 8px solid #dddfe4;
+display: block;
+padding: 16px;
+margin: 0 0 24px;
+border-left: 8px solid #dddfe4;
+background: #eef0f4;
+overflow: auto;
+word-break: break-word !important;
+">
+由于这里给了最高admin的权限，不建议在生产环境使用
+</p> 
 
 ```yaml
 # NOTE: The service account `default:default` already exists in k8s cluster.
