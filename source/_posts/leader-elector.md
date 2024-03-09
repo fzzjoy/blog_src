@@ -214,7 +214,7 @@ func main() {
 }
 ```
 编译运行，同时启动三个进程，停止其中一个获取到lease的进程：
-![alt text](/_posts/leader-elector/image.png)
+![alt text](image.png)
 另一个进程随即抢到lease
 ![alt text](image-1.png)
 没有获取到lease的会被阻塞住
