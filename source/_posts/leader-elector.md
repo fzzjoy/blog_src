@@ -3,10 +3,11 @@ title: k8s是如何选主的
 categories:
 - 云原生
 ---
-本文主要介绍两种选主方式:
+本文主要从工程角度介绍两种选主方式:
 - Sidercar部署：不侵入业务，利用现有轮子
 - 嵌入业务代码：对于业务有侵入，好在可控性强
 
+关于原理方面的介绍，可以参考[基于Kubernetes选主及应用](https://qiankunli.github.io/2021/01/13/kubernetes_leader_election.html)
 # Sidercar部署
 ```yaml
 apiVersion: apps/v1
@@ -214,11 +215,11 @@ func main() {
 }
 ```
 编译运行，同时启动三个进程，停止其中一个获取到lease的进程：
-![alt text](image.png)
+![](image.png)
 另一个进程随即抢到lease
-![alt text](image-1.png)
+![](image-1.png)
 没有获取到lease的会被阻塞住
-![alt text](image-2.png)
+![](image-2.png)
 在集群中我们也可以查看lease的相关信息
 ```shell
 $ kubectl get lease 
