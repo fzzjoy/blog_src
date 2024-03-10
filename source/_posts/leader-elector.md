@@ -1,5 +1,8 @@
 ---
 title: k8s是如何选主的
+tags:
+- k8s
+- 选主
 categories:
 - 云原生
 ---
