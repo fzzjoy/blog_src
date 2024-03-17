@@ -12,7 +12,21 @@ categories:
 - 嵌入业务代码：对于业务有侵入，好在可控性强
 
 关于原理方面的介绍，可以参考[基于Kubernetes选主及应用](https://qiankunli.github.io/2021/01/13/kubernetes_leader_election.html)
+<p style="padding: 10px; border-left: 8px solid #dddfe4;
+display: block;
+padding: 16px;
+margin: 0 0 24px;
+border-left: 8px solid #dddfe4;
+background: #eef0f4;
+overflow: auto;
+word-break: break-word !important;
+">
+简单的可以理解为利用k8s的update操作是原子、安全的：利用资源版本 (ResourceVersion)字段在etcd层面实现了乐观锁；因此只有哪个follower能将自己的信息更新（Update）到 object（lease） 的annotation上，那么他就是主
+</p> 
+
+
 # Sidercar部署
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
